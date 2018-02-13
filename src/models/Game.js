@@ -14,6 +14,7 @@ const viewport = document.getElementById('viewport')
 const energyBar = document.getElementById('energy-bar')
 const score = document.getElementById('score-value')
 let player
+let then = Date.now()
 
 class Game {
   static updatePlayer (details, onAction) {
@@ -51,7 +52,17 @@ class Game {
       Viewport.render(-player.x, -player.y)
       Starfield.render(player)
       Game.renderInfo()
+      Game.housekeeping()
     }
+  }
+
+  static housekeeping () {
+    Body.all.forEach((body) => {
+      if (body !== player && body.lastUpdated < then) {
+        body.destroy()
+      }
+    })
+    then = Date.now()
   }
 
   static renderInfo () {
