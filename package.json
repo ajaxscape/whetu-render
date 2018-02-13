@@ -1,0 +1,22 @@
+{
+  "name": "whetu-render",
+  "version": "0.1.0",
+  "description": "Renders Whetu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajaxscape/whetu-render.git"
+  },
+  "author": "Ben Surgison",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajaxscape/whetu-render/issues"
+  },
+  "homepage": "https://github.com/ajaxscape/whetu-render#readme",
+  "devDependencies": {
+    "standard": "^10.0.3"
+  }
+}
