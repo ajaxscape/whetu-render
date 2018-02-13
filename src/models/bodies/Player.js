@@ -20,18 +20,18 @@ const boltSound = new Howl({
 })
 
 class Player extends Spacecraft {
-  constructor (details, ws) {
+  constructor (details, onAction) {
     super(details)
     this.username = 'You'
     this.classList.add('player')
-    this.setUpEvents(ws)
+    this.setUpEvents(onAction)
   }
 
   update (changes) {
     return super.update(changes)
   }
 
-  setUpEvents (ws) {
+  setUpEvents (onAction) {
     const id = this.id
     const actions = this.actions = {
       rotate: 0,
@@ -67,7 +67,7 @@ class Player extends Spacecraft {
       .onAction(() => {
         const viewport = {width: Viewport.width, height: Viewport.height}
         const radar = {width: Radar.width, height: Radar.height}
-        ws.send(JSON.stringify({type: 'player', data: {id, actions, viewport, radar}}))
+        onAction({id, actions, viewport, radar})
       })
 
     setInterval(() => {

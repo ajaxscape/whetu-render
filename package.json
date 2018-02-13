@@ -18,5 +18,8 @@
   "homepage": "https://github.com/ajaxscape/whetu-render#readme",
   "devDependencies": {
     "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "howler": "^2.0.9"
   }
 }

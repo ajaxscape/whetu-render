@@ -30,13 +30,15 @@ class Game {
       const {type, data} = JSON.parse(ev.data)
       switch (type) {
         case 'joined': {
-          Game.updatePlayer(data)
+          Game.updatePlayer(data, (data) => {
+            ws.send(JSON.stringify({type: 'player', data}))
+          })
           break
         }
         case 'state': {
           const now = Date.now()
           data.forEach((_data) => {
-            Game.updateBody(_data)
+            Game.updateBody(_data, onAction)
           })
           Body.all.forEach((body) => {
             if (body !== player && body.lastUpdated < now) {
@@ -50,9 +52,9 @@ class Game {
     }
   }
 
-  static updatePlayer (details) {
+  static updatePlayer (details, onAction) {
     if (!player) {
-      player = new Player(details, ws)
+      player = new Player(details, onAction)
     }
     player.prevX = player.x
     player.prevY = player.y
