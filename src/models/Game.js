@@ -1,6 +1,5 @@
 const service = window.expanse.config
 // eslint-disable-next-line no-undef
-const ws = new WebSocket(service)
 const {floatingObjects: {ENERGY}} = require('../constants')
 const Body = require('./bodies/Body')
 const Player = require('./bodies/Player')
@@ -17,41 +16,6 @@ const score = document.getElementById('score-value')
 let player
 
 class Game {
-  static connect () {
-    // event emmited when connected
-    ws.onopen = function () {
-      console.log('websocket is connected ...')
-      // sending a send event to websocket server
-      ws.send(JSON.stringify({type: 'join'}))
-    }
-
-    // event emmited when receiving message
-    ws.onmessage = (ev) => {
-      const {type, data} = JSON.parse(ev.data)
-      switch (type) {
-        case 'joined': {
-          Game.updatePlayer(data, (data) => {
-            ws.send(JSON.stringify({type: 'player', data}))
-          })
-          break
-        }
-        case 'state': {
-          const now = Date.now()
-          data.forEach((_data) => {
-            Game.updateBody(_data, onAction)
-          })
-          Body.all.forEach((body) => {
-            if (body !== player && body.lastUpdated < now) {
-              body.destroy()
-            }
-          })
-          Game.render()
-          break
-        }
-      }
-    }
-  }
-
   static updatePlayer (details, onAction) {
     if (!player) {
       player = new Player(details, onAction)
