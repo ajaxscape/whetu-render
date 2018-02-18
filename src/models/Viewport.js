@@ -15,10 +15,10 @@ class Viewport {
     viewport.innerHTML = Body.all
       .filter((body) => body.inView)
       .map((body) => {
-      const x = offSetX + clientWidth / 2
-      const y = offSetY + clientHeight / 2
-      return body.render(x, y)
-    }).join('')
+        const x = offSetX + clientWidth / 2
+        const y = offSetY + clientHeight / 2
+        return body.render(x, y)
+      }).join('')
   }
 }
 

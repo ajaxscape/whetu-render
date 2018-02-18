@@ -84,7 +84,6 @@ class Starfield {
       Starfield.drawStars()
     }
   }
-
 }
 
 module.exports = Starfield
