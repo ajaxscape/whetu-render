@@ -1,5 +1,3 @@
-const service = window.expanse.config
-// eslint-disable-next-line no-undef
 const {floatingObjects: {ENERGY}} = require('../constants')
 const Body = require('./bodies/Body')
 const Player = require('./bodies/Player')
