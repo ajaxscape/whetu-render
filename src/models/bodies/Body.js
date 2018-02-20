@@ -46,7 +46,7 @@ class Body {
     if (scale < 1) {
       return `<div class="${className}" style="left: ${left}px; top: ${top}px;"><div class="name">${username || ''}</div></div>`
     } else {
-      return `<div id="${id}" class="body-container" style="visibility: visible; left: ${left}px; top: ${top};"><div class="${className}" style="transform: rotate(${orientation}deg);"></div><div class="name">${username || ''}</div></div>`
+      return `<div id="${id}" class="body-container" style="visibility: visible; left: ${left}px; top: ${top}px;"><div class="${className}" style="transform: rotate(${orientation}deg);"></div><div class="name">${username || ''}</div></div>`
     }
   }
 

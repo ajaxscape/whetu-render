@@ -32,7 +32,7 @@ class Radar {
     //   const vector = Vector.getVector(angle, VISIBLE_WIDTH / 2)
     //   const left = (vector.x ) * Radar.scale
     //   const top = (vector.y) * Radar.scale
-    //   return `<div class="body glow" style="visibility: visible; left: ${left}px; top: ${top};"></div>`
+    //   return `<div class="body glow" style="visibility: visible; left: ${left}px; top: ${top}px;"></div>`
     // }
     return ''
   }
