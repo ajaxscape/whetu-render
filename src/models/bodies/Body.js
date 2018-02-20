@@ -44,7 +44,7 @@ class Body {
     const left = (x - (width / 2) + offSetX) * scale
     const top = (y - (height / 2) + offSetY) * scale
     if (scale < 1) {
-      return `<div class="${className}" style="left: ${left}px; top: ${top};"><div class="name">${username || ''}</div></div>`
+      return `<div class="${className}" style="left: ${left}px; top: ${top}px;"><div class="name">${username || ''}</div></div>`
     } else {
       return `<div id="${id}" class="body-container" style="visibility: visible; left: ${left}px; top: ${top};"><div class="${className}" style="transform: rotate(${orientation}deg);"></div><div class="name">${username || ''}</div></div>`
     }
