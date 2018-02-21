@@ -14,6 +14,7 @@ class Body {
     this.classList.add(camelCaseToDash(details.type))
     this.classList.add(camelCaseToDash(details.klass))
     bodiesById[this.id] = this
+    bodies.push(this)
   }
 
   static get (id) {
