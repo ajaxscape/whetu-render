@@ -4,6 +4,7 @@ function camelCaseToDash (str) {
   return str.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase()
 }
 
+const bodies = []
 const bodiesById = {}
 
 class Body {
@@ -20,7 +21,7 @@ class Body {
   }
 
   static get all () {
-    return Object.keys(bodiesById).map((id) => bodiesById[id])
+    return bodies
   }
 
   get classList () {
@@ -51,6 +52,10 @@ class Body {
   }
 
   destroy () {
+    const index = bodies.indexOf(this);
+    if (index !== -1) {
+      bodies.splice(index, 1);
+    }
     delete bodiesById[this.id]
   }
 }
