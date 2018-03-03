@@ -11,6 +11,7 @@ const Viewport = require('./Viewport')
 const viewport = document.getElementById('viewport')
 const energyBar = document.getElementById('energy-bar')
 const score = document.getElementById('score-value')
+const location = document.getElementById('location-value')
 let player
 let then = Date.now()
 
@@ -69,6 +70,7 @@ class Game {
     if (player.score) {
       score.innerHTML = `${player.score}`
     }
+    location.innerHTML = `${player.x}, ${player.y}`
   }
 }
 
