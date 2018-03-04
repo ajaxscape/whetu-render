@@ -74,7 +74,7 @@ class Player extends Spacecraft {
       if (actions.fire) {
         boltSound.play()
       }
-    }, 300)
+    }, 500)
   }
 }
 

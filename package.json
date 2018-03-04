@@ -1,6 +1,6 @@
 {
   "name": "whetu-render",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Renders Whetu",
   "main": "index.js",
   "scripts": {
